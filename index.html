@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>鋼彈爭鋒對決 課金計算</title>
+		<link rel="icon" type="image/x-icon" href="./images/金幣.ico">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: black;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;				
+			}
+			#title {
+				margin: 0;
+			}
+			.container {
+				margin: 10px 0;
+				background-color: #ffffff;
+				background-image: url("./images/鋼彈爭鋒對決logo.png");
+				background-repeat: no-repeat;
+				padding: 10px;
+				border-radius: 10px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				display: grid;
+				grid-template-columns: auto auto auto auto auto;
+				grid-auto-flow: dense;
+				gap: 10px;
+				align-items: center;
+			}
+			.container input[type="number"] {
+				width: 80px;
+				text-align: center;
+			}
+			.container input {
+				padding: 5px;
+				white-space: nowrap;
+			}
+			.container label {
+				white-space: nowrap;
+			}
+			#resetSalesQuantity {
+				padding: 5px;
+				align-items: center;
+				grid-column: 4 / 6;
+			}
+			#selesDiamondPricesLabel {
+				text-align: center;
+				grid-column: 2 / 4;
+			}
+			#SalesQuantityLabel {
+				text-align: center;
+				grid-column: 4 / 6; 
+			}
+			.columnContainer {
+				width: 100%;
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				grid-column: 1 / 6; 
+			}
+			#salesPriceInput {
+				width: 100%;
+				padding: 10px;
+			}
+			#calculateDiscountRateButton {
+				width: 80%;
+				padding: 10px;
+			}
+			#calculateDiscountRate1, #calculateDiscountRate2, #productListCalculateDiscountRate1, #productListCalculateDiscountRate2 {
+				width: 90%;
+				padding: 10px;
+			}
+			#columnLabel {
+				width: 100%;
+				display: block;
+			}
+			#salesMoneyType, #salesDiamondType {
+				width: 50px;
+				height: 50px;
+				border: 3px solid #8c8c8c;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			#salesDiamondType {
+				display: none;
+			}
+			#salesMoneyType:hover, #salesDiamondType:hover {
+				filter: brightness(50%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">				
+				<div class="columnContainer">
+					<h1 id="title">課金計算</h1>					
+				</div>
+				
+				<div></div>
+				<div></div>
+				<div></div>				
+				<button id="resetSalesQuantity" onclick="salesReset()">歸零重置</button>
+				
+				<div></div>
+				<label id="selesDiamondPricesLabel">販賣鑽石價格</label>
+				<label id="SalesQuantityLabel">販賣數量</label>				
+				
+			
+			
+				<img src="./images/常規補給卡.png" alt="常規補給卡">
+				<input type="number" min="0" id="commonSupplyCardSalesPrice" value="128">
+				<img src="./images/鑽石.png" alt="鑽石">
+				<input type="number" min="0" id="commonSupplyCardSalesQuantity" value="0">
+				<label>個</label>
+			
+				<img src="./images/機體補給卡.png" alt="機體補給卡">
+				<input type="number" min="0" id="unitSupplyCardSalesPrice" value="128">
+				<img src="./images/鑽石.png" alt="鑽石">
+				<input type="number" min="0" id="unitSupplyCardSalesQuantity" value="0">
+				<label>個</label>
+			
+				<img src="./images/駕駛員補給卡.png" alt="駕駛員補給卡">
+				<input type="number" min="0" id="pilotSupplyCardSalesPrice" value="68">
+				<img src="./images/鑽石.png" alt="鑽石">
+				<input type="number" min="0" id="pilotSupplyCardSalesQuantity" value="0">
+				<label>個</label>
+			
+				<img src="./images/戰艦補給卡.png" alt="戰艦補給卡">
+				<input type="number" min="0" id="warshipSupplyCardSalesPrice" value="68">
+				<img src="./images/鑽石.png" alt="鑽石">
+				<input type="number" min="0" id="warshipSupplyCardSalesQuantity" value="0">
+				<label>個</label>
+			
+				<img src="./images/艦員補給卡.png" alt="艦員補給卡">
+				<input type="number" min="0" id="crewSupplyCardSalesPrice" value="48">
+				<img src="./images/鑽石.png" alt="鑽石">
+				<input type="number" min="0" id="crewSupplyCardSalesQuantity" value="0">
+				<label>個</label>
+			
+				<img src="./images/零件補給卡.png" alt="零件補給卡">
+				<input type="number" min="0" id="partsSupplyCardSalesPrice" value="28">
+				<img src="./images/鑽石.png" alt="鑽石">
+				<input type="number" min="0" id="partsSupplyCardSalesQuantity" value="0">
+				<label>個</label>
+			
+				<img src="./images/金哈囉.png" alt="金哈囉">
+				<input type="number" min="0" id="goldSupplyCardSalesPrice" value="10">
+				<img src="./images/鑽石.png" alt="鑽石">
+				<input type="number" min="0" id="goldSupplyCardSalesQuantity" value="0">
+				<label>個</label>
+				
+				<img src="./images/鑽石.png" alt="鑽石">
+				<div></div>
+				<div></div>
+				<input type="number" min="0" id="diamondSalesQuantity" value="0">
+				<label>個</label>
+				
+				<label>1$</label>
+				<input type="number" min="0" id="diamondSalesPrice" value="4">
+				<img src="./images/鑽石.png" alt="鑽石">
+				<div></div>
+				<div></div>
+				
+				<div class="columnContainer">
+					<label id="salesPriceLabel">販賣價格</label>
+					<input type="number" min="0" id="salesPriceInput" value="0">
+					<img src="./images/banknote.png" id="salesMoneyType" alt="$" onclick="switchSalesType('money')">
+					<img src="./images/鑽石.png" id="salesDiamondType" alt="鑽石" onclick="switchSalesType('diamond')">
+				</div>				
+				<div class="columnContainer">
+					<label id="columnLabel">現金=現金*(1$=鑽石數量)</label>
+				</div>
+				<div class="columnContainer">
+					<button id="calculateDiscountRateButton" onclick="calculateDiscountRate()">計算折扣比率</button>
+				</div>
+				
+				
+				<div class="columnContainer">
+					<label id="calculateDiscountRateLabel">折扣比率(售價 / 原價) %：</label>
+					<input type="text" id="calculateDiscountRate1" value="請輸入商品販賣數量、價格" readonly="readonly">
+				</div>
+				<div class="columnContainer">
+					<label id="calculateDiscountRateLabel">折扣比率(1-售價/原價)%：</label>
+					<input type="text" id="calculateDiscountRate2" value="請輸入商品販賣數量、價格" readonly="readonly">
+				</div>
+				
+				<div class="columnContainer">
+					<label id="columnLabel">商品清單=折扣比率(售價 / 原價) %：</label>
+				</div>
+				<div class="columnContainer">
+					<input type="text" id="productListCalculateDiscountRate1" value="請輸入商品販賣數量、價格" readonly="readonly">
+				</div>
+				
+				<div class="columnContainer">
+					<label id="columnLabel">商品清單=折扣比率(1-售價/原價)%：</label>
+				</div>
+				<div class="columnContainer">
+					<input type="text" id="productListCalculateDiscountRate2" value="請輸入商品販賣數量、價格" readonly="readonly">
+				</div>
+		</div>
+
+		<script>
+			function salesReset() {
+				// 將所有商品的販賣數量設置為零
+
+				// 常規補給卡
+				document.getElementById("commonSupplyCardSalesQuantity").value = 0;
+
+				// 機體補給卡
+				document.getElementById("unitSupplyCardSalesQuantity").value = 0;
+
+				// 駕駛員補給卡
+				document.getElementById("pilotSupplyCardSalesQuantity").value = 0;
+
+				// 戰艦補給卡
+				document.getElementById("warshipSupplyCardSalesQuantity").value = 0;
+
+				// 艦員補給卡
+				document.getElementById("crewSupplyCardSalesQuantity").value = 0;
+
+				// 零件補給卡
+				document.getElementById("partsSupplyCardSalesQuantity").value = 0;
+
+				// 金幣
+				document.getElementById("goldSupplyCardSalesQuantity").value = 0;
+
+				// 鑽石
+				document.getElementById("diamondSalesQuantity").value = 0;
+
+				// 商品販賣價格設置為零
+				document.getElementById("salesPriceInput").value = 0;
+
+				// 將折扣比率顯示區域設置為預設提示
+				document.getElementById("calculateDiscountRate1").value = "請輸入商品販賣數量、價格";
+				document.getElementById("calculateDiscountRate2").value = "請輸入商品販賣數量、價格";
+
+				// 將商品列表折扣比率顯示區域設置為預設提示
+				document.getElementById("productListCalculateDiscountRate1").value = "請輸入商品販賣數量、價格";
+				document.getElementById("productListCalculateDiscountRate2").value = "請輸入商品販賣數量、價格";
+			}
+			
+			var salesType = "money";
+			
+			function switchSalesType(currentSalesType) {				
+				// 進行切換
+				if (currentSalesType == "money") {
+					document.getElementById("salesMoneyType").style.display = "none";
+					document.getElementById("salesDiamondType").style.display = "block";
+					salesType = "diamond";					
+				} else {
+					document.getElementById("salesDiamondType").style.display = "none";
+					document.getElementById("salesMoneyType").style.display = "block";
+					salesType = "money"
+				}
+			}
+			
+			function calculateDiscountRate() {
+				// 獲取各商品的價格和數量
+				// 常規補給卡
+				const commonSupplyCardPrice = parseFloat(document.getElementById("commonSupplyCardSalesPrice").value);
+				const commonSupplyCardQuantity = parseFloat(document.getElementById("commonSupplyCardSalesQuantity").value);
+				// 機體補給卡
+				const unitSupplyCardPrice = parseFloat(document.getElementById("unitSupplyCardSalesPrice").value);
+				const unitSupplyCardQuantity = parseFloat(document.getElementById("unitSupplyCardSalesQuantity").value);
+				// 駕駛員補給卡
+				const pilotSupplyCardPrice = parseFloat(document.getElementById("pilotSupplyCardSalesPrice").value);
+				const pilotSupplyCardQuantity = parseFloat(document.getElementById("pilotSupplyCardSalesQuantity").value);
+				// 戰艦補給卡
+				const warshipSupplyCardPrice = parseFloat(document.getElementById("warshipSupplyCardSalesPrice").value);
+				const warshipSupplyCardQuantity = parseFloat(document.getElementById("warshipSupplyCardSalesQuantity").value);
+				// 艦員補給卡
+				const crewSupplyCardPrice = parseFloat(document.getElementById("crewSupplyCardSalesPrice").value);
+				const crewSupplyCardQuantity = parseFloat(document.getElementById("crewSupplyCardSalesQuantity").value);
+				// 零件補給卡
+				const partsSupplyCardPrice = parseFloat(document.getElementById("partsSupplyCardSalesPrice").value);
+				const partsSupplyCardQuantity = parseFloat(document.getElementById("partsSupplyCardSalesQuantity").value);
+				// 金幣
+				const goldSupplyCardPrice = parseFloat(document.getElementById("goldSupplyCardSalesPrice").value);
+				const goldSupplyCardQuantity = parseFloat(document.getElementById("goldSupplyCardSalesQuantity").value);
+				// 鑽石
+				const diamondSalesPrice = parseFloat(document.getElementById("diamondSalesPrice").value);
+				const diamondSalesQuantity = parseFloat(document.getElementById("diamondSalesQuantity").value);
+
+				// 計算原價格
+				const originalPrice = (
+					(commonSupplyCardPrice * commonSupplyCardQuantity) +
+					(unitSupplyCardPrice * unitSupplyCardQuantity) +
+					(pilotSupplyCardPrice * pilotSupplyCardQuantity) +
+					(warshipSupplyCardPrice * warshipSupplyCardQuantity) +
+					(crewSupplyCardPrice * crewSupplyCardQuantity) +
+					(partsSupplyCardPrice * partsSupplyCardQuantity) +
+					(goldSupplyCardPrice * goldSupplyCardQuantity) +
+					(diamondSalesQuantity)
+				);
+				
+				// 獲取折扣後的價格
+				let discountedPrice = parseFloat(document.getElementById("salesPriceInput").value);
+				
+				if (originalPrice == 0 || discountedPrice == 0) {
+					// 將折扣比率顯示區域設置為預設提示
+					document.getElementById("calculateDiscountRate1").value = "請輸入商品販賣數量、價格";
+					document.getElementById("calculateDiscountRate2").value = "請輸入商品販賣數量、價格";
+
+					// 將商品列表折扣比率顯示區域設置為預設提示
+					document.getElementById("productListCalculateDiscountRate1").value = "請輸入商品販賣數量、價格";
+					document.getElementById("productListCalculateDiscountRate2").value = "請輸入商品販賣數量、價格";
+				} else {
+					// 如果販賣為現金，將折扣後的價格 *= (1塊錢=多少鑽石)
+					if (salesType == "money") {
+						discountedPrice *= diamondSalesPrice;
+					}
+					// 計算折扣比率
+					const discountRate1 = discountedPrice / originalPrice * 100;
+					const discountRate2 = (1 - discountedPrice / originalPrice) * 100;
+
+					// 顯示折扣比率
+					document.getElementById("calculateDiscountRate1").value = `${discountRate1.toFixed(2)}%`;
+					document.getElementById("calculateDiscountRate2").value = `${discountRate2.toFixed(2)}%`;
+					
+					// 商品清單
+					let productList = parseFloat(document.getElementById("salesPriceInput").value);
+					if (salesType == "money") {
+						productList += "$=";
+					} else {
+						productList += "鑽石=";
+					}
+					if (commonSupplyCardQuantity > 0) {
+						productList += "常規補給卡*" + commonSupplyCardQuantity + "+";
+					}
+					if (unitSupplyCardQuantity > 0) {
+						productList += "機體補給卡*" + unitSupplyCardQuantity + "+";
+					}
+					if (pilotSupplyCardQuantity > 0) {
+						productList += "駕駛員補給卡*" + pilotSupplyCardQuantity + "+";
+					}
+					if (warshipSupplyCardQuantity > 0) {
+						productList += "戰艦補給卡*" + warshipSupplyCardQuantity + "+";
+					}
+					if (crewSupplyCardQuantity > 0) {
+						productList += "艦員補給卡*" + crewSupplyCardQuantity + "+";
+					}
+					if (partsSupplyCardQuantity > 0) {
+						productList += "零件補給卡*" + partsSupplyCardQuantity + "+";
+					}
+					if (goldSupplyCardQuantity > 0) {
+						productList += "金哈囉*" + goldSupplyCardQuantity + "+";
+					}
+					if (diamondSalesQuantity > 0) {
+						productList += "鑽石*" + diamondSalesQuantity + "+";
+					}
+					
+					productList = productList.slice(0, -1) + "=";
+					
+					document.getElementById("productListCalculateDiscountRate1").value = productList + `${discountRate1.toFixed(2)}%`;
+					document.getElementById("productListCalculateDiscountRate2").value = productList + `${discountRate2.toFixed(2)}%`;
+				}
+			}
+		</script>
+	</body>
+</html>
