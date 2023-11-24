@@ -118,8 +118,8 @@
 				<button id="salesResetButton" onclick="salesReset()">歸零重置</button>
 				
 				<div></div>
-				<label id="selesDiamondPricesLabel">販賣鑽石價格</label>
-				<label id="SalesQuantityLabel">販賣數量</label>				
+				<label id="selesDiamondPricesLabel">原本的鑽石價格</label>
+				<label id="SalesQuantityLabel">銷售數量</label>				
 				
 			
 			
@@ -178,22 +178,28 @@
 				<div></div>
 				
 				<div class="columnContainer">
-					<label id="salesPriceLabel">販賣價格</label>
+					<label id="salesPriceLabel">銷售價格</label>
 					<input type="number" min="0" id="salesPriceInput" value="0">
 					<img src="./images/banknote.png" id="salesMoneyType" alt="$" onclick="switchSalesType('money')">
 					<img src="./images/鑽石.png" id="salesDiamondType" alt="鑽石" onclick="switchSalesType('diamond')">
-				</div>				
+				</div>								
 				<div class="columnContainer">
-					<label class="columnLabel">計算會把$轉成等價的鑽石數量($*1$的販賣鑽石價格)</label>					
+					<label class="columnLabel">計算會把售價$轉成等價的鑽石數量</label>					
+				</div>
+				<div class="columnContainer">
+					<label class="columnLabel">(售價 * 1$能買多少鑽石的數量)</label>					
 				</div>
 				<div class="columnContainer">
 					<label class="columnLabel">請輸入商品販賣數量、價格來計算折扣比率。</label>
-				</div>
+				</div>				
 								
 				<div class="columnContainer">
 					<button id="calculateDiscountRateButton" onclick="calculateDiscountRate()">計算折扣比率</button>
 				</div>
-				
+
+				<div class="columnContainer">
+					<label class="columnLabel">原價=各商品(原本的鑽石價格 * 銷售數量)做加總</label>					
+				</div>
 				
 				<div class="columnContainer">
 					<label id="calculateDiscountRateLabel">折扣比率(售價 / 原價) %：</label>
@@ -205,14 +211,14 @@
 				</div>
 				
 				<div class="columnContainer">
-					<label class="columnLabel">商品清單=折扣比率(售價 / 原價) %：</label>
+					<label class="columnLabel">售價$=商品清單=折扣比率(售價 / 原價) %：</label>
 				</div>
 				<div class="columnContainer">
 					<input type="text" id="productListCalculateDiscountRate1" value="請輸入商品販賣數量、價格">
 				</div>
 				
 				<div class="columnContainer">
-					<label class="columnLabel">商品清單=折扣比率(1-售價/原價)%：</label>
+					<label class="columnLabel">售價$=商品清單=折扣比率(1-售價/原價)%：</label>
 				</div>
 				<div class="columnContainer">
 					<input type="text" id="productListCalculateDiscountRate2" value="請輸入商品販賣數量、價格">
