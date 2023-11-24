@@ -203,25 +203,25 @@
 				
 				<div class="columnContainer">
 					<label id="calculateDiscountRateLabel">折扣比率(售價 / 原價) %：</label>
-					<input type="text" id="calculateDiscountRate1" value="請輸入商品販賣數量、價格">
+					<input type="text" id="calculateDiscountRate1" value="請輸入商品銷售價格、銷售數量來計算折扣比率。">
 				</div>
 				<div class="columnContainer">
 					<label id="calculateDiscountRateLabel">折扣比率(1-售價/原價)%：</label>
-					<input type="text" id="calculateDiscountRate2" value="請輸入商品販賣數量、價格">
+					<input type="text" id="calculateDiscountRate2" value="請輸入商品銷售價格、銷售數量來計算折扣比率。">
 				</div>
 				
 				<div class="columnContainer">
 					<label class="columnLabel">售價$=商品清單=折扣比率(售價 / 原價) %：</label>
 				</div>
 				<div class="columnContainer">
-					<input type="text" id="productListCalculateDiscountRate1" value="請輸入商品販賣數量、價格">
+					<input type="text" id="productListCalculateDiscountRate1" value="請輸入商品銷售價格、銷售數量來計算折扣比率。">
 				</div>
 				
 				<div class="columnContainer">
 					<label class="columnLabel">售價$=商品清單=折扣比率(1-售價/原價)%：</label>
 				</div>
 				<div class="columnContainer">
-					<input type="text" id="productListCalculateDiscountRate2" value="請輸入商品販賣數量、價格">
+					<input type="text" id="productListCalculateDiscountRate2" value="請輸入商品銷售價格、銷售數量來計算折扣比率。">
 				</div>
 		</div>
 
@@ -257,12 +257,12 @@
 				document.getElementById("salesPriceInput").value = 0;
 
 				// 將折扣比率顯示區域設置為預設提示
-				document.getElementById("calculateDiscountRate1").value = "請輸入商品販賣數量、價格";
-				document.getElementById("calculateDiscountRate2").value = "請輸入商品販賣數量、價格";
+				document.getElementById("calculateDiscountRate1").value = "請輸入商品銷售價格、銷售數量來計算折扣比率。";
+				document.getElementById("calculateDiscountRate2").value = "請輸入商品銷售價格、銷售數量來計算折扣比率。";
 
 				// 將商品列表折扣比率顯示區域設置為預設提示
-				document.getElementById("productListCalculateDiscountRate1").value = "請輸入商品販賣數量、價格";
-				document.getElementById("productListCalculateDiscountRate2").value = "請輸入商品販賣數量、價格";
+				document.getElementById("productListCalculateDiscountRate1").value = "請輸入商品銷售價格、銷售數量來計算折扣比率。";
+				document.getElementById("productListCalculateDiscountRate2").value = "請輸入商品銷售價格、銷售數量來計算折扣比率。";
 			}
 			
 			var salesType = "money";
@@ -324,12 +324,12 @@
 				
 				if (originalPrice == 0 || discountedPrice == 0) {
 					// 將折扣比率顯示區域設置為預設提示
-					document.getElementById("calculateDiscountRate1").value = "請輸入商品販賣數量、價格";
-					document.getElementById("calculateDiscountRate2").value = "請輸入商品販賣數量、價格";
+					document.getElementById("calculateDiscountRate1").value = "請輸入商品銷售價格、銷售數量來計算折扣比率。";
+					document.getElementById("calculateDiscountRate2").value = "請輸入商品銷售價格、銷售數量來計算折扣比率。";
 
 					// 將商品列表折扣比率顯示區域設置為預設提示
-					document.getElementById("productListCalculateDiscountRate1").value = "請輸入商品販賣數量、價格";
-					document.getElementById("productListCalculateDiscountRate2").value = "請輸入商品販賣數量、價格";
+					document.getElementById("productListCalculateDiscountRate1").value = "請輸入商品銷售價格、銷售數量來計算折扣比率。";
+					document.getElementById("productListCalculateDiscountRate2").value = "請輸入商品銷售價格、銷售數量來計算折扣比率。";
 				} else {
 					// 如果販賣為現金，將折扣後的價格 *= (1塊錢=多少鑽石)
 					if (salesType == "money") {
