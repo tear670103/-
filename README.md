@@ -6,8 +6,3 @@
 原本鑽石價格初始值都是補給鑽石售價，金哈囉原本鑽石價格則是商城-商店-每月特惠的金哈囉銷售的鑽石價格。  
 
 https://tear670103.github.io/Gundam-Supreme-Battle-Pay-Calculator/
-
-
-肝蛋陰間對決
-https://tear670103.github.io/Gundam-Supreme-Battle-Pay-Calculator/ 
-
