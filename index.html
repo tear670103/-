@@ -306,7 +306,7 @@
 				// 零件補給卡
 				const partsSupplyCardPrice = parseFloat(document.getElementById("partsSupplyCardSalesPrice").value);
 				const partsSupplyCardQuantity = parseFloat(document.getElementById("partsSupplyCardSalesQuantity").value);
-				// 金幣
+				// 金哈囉 金幣
 				const goldSupplyCardPrice = parseFloat(document.getElementById("goldSupplyCardSalesPrice").value);
 				const goldSupplyCardQuantity = parseFloat(document.getElementById("goldSupplyCardSalesQuantity").value);
 				// 鑽石
@@ -353,33 +353,33 @@
 					let productList = parseFloat(document.getElementById("salesPriceInput").value);
 					
 					if (salesType == "money") {
-						productList += "$/(";
+						productList += "$*" + diamondSalesPrice + "鑽石/(";
 					} else {
 						productList += "鑽石/(";
 					}
 					if (commonSupplyCardQuantity > 0) {
-						productList += "常規補給卡*" + commonSupplyCardQuantity + "+";
+						productList += "常規補給卡" + commonSupplyCardPrice + "鑽石*" + commonSupplyCardQuantity + "+";
 					}
 					if (unitSupplyCardQuantity > 0) {
-						productList += "機體補給卡*" + unitSupplyCardQuantity + "+";
+						productList += "機體補給卡" + unitSupplyCardPrice + "鑽石*" + unitSupplyCardQuantity + "+";
 					}
 					if (pilotSupplyCardQuantity > 0) {
-						productList += "駕駛員補給卡*" + pilotSupplyCardQuantity + "+";
+						productList += "駕駛員補給卡" + pilotSupplyCardPrice + "鑽石*" + pilotSupplyCardQuantity + "+";
 					}
 					if (warshipSupplyCardQuantity > 0) {
-						productList += "戰艦補給卡*" + warshipSupplyCardQuantity + "+";
+						productList += "戰艦補給卡" + warshipSupplyCardPrice + "鑽石*" + warshipSupplyCardQuantity + "+";
 					}
 					if (crewSupplyCardQuantity > 0) {
-						productList += "艦員補給卡*" + crewSupplyCardQuantity + "+";
+						productList += "艦員補給卡" + crewSupplyCardPrice + "鑽石*" + crewSupplyCardQuantity + "+";
 					}
 					if (partsSupplyCardQuantity > 0) {
-						productList += "零件補給卡*" + partsSupplyCardQuantity + "+";
+						productList += "零件補給卡" + partsSupplyCardPrice + "鑽石*" + partsSupplyCardQuantity + "+";
 					}
 					if (goldSupplyCardQuantity > 0) {
-						productList += "金哈囉*" + goldSupplyCardQuantity + "+";
+						productList += "金哈囉" + goldSupplyCardPrice + "鑽石*" + goldSupplyCardQuantity + "+";
 					}
 					if (diamondSalesQuantity > 0) {
-						productList += "鑽石*" + diamondSalesQuantity + "+";
+						productList += diamondSalesQuantity + "鑽石+";
 					}
 					
 					productList = productList.slice(0, -1) + ")=";
