@@ -358,25 +358,25 @@
 						productList += "鑽石/(";
 					}
 					if (commonSupplyCardQuantity > 0) {
-						productList += "常規補給卡" + commonSupplyCardPrice + "鑽石*" + commonSupplyCardQuantity + "+";
+						productList += "常規補給卡" + commonSupplyCardPrice + "鑽石*" + commonSupplyCardQuantity + "個+";
 					}
 					if (unitSupplyCardQuantity > 0) {
-						productList += "機體補給卡" + unitSupplyCardPrice + "鑽石*" + unitSupplyCardQuantity + "+";
+						productList += "機體補給卡" + unitSupplyCardPrice + "鑽石*" + unitSupplyCardQuantity + "個+";
 					}
 					if (pilotSupplyCardQuantity > 0) {
-						productList += "駕駛員補給卡" + pilotSupplyCardPrice + "鑽石*" + pilotSupplyCardQuantity + "+";
+						productList += "駕駛員補給卡" + pilotSupplyCardPrice + "鑽石*" + pilotSupplyCardQuantity + "個+";
 					}
 					if (warshipSupplyCardQuantity > 0) {
-						productList += "戰艦補給卡" + warshipSupplyCardPrice + "鑽石*" + warshipSupplyCardQuantity + "+";
+						productList += "戰艦補給卡" + warshipSupplyCardPrice + "鑽石*" + warshipSupplyCardQuantity + "個+";
 					}
 					if (crewSupplyCardQuantity > 0) {
-						productList += "艦員補給卡" + crewSupplyCardPrice + "鑽石*" + crewSupplyCardQuantity + "+";
+						productList += "艦員補給卡" + crewSupplyCardPrice + "鑽石*" + crewSupplyCardQuantity + "個+";
 					}
 					if (partsSupplyCardQuantity > 0) {
-						productList += "零件補給卡" + partsSupplyCardPrice + "鑽石*" + partsSupplyCardQuantity + "+";
+						productList += "零件補給卡" + partsSupplyCardPrice + "鑽石*" + partsSupplyCardQuantity + "個+";
 					}
 					if (goldSupplyCardQuantity > 0) {
-						productList += "金哈囉" + goldSupplyCardPrice + "鑽石*" + goldSupplyCardQuantity + "+";
+						productList += "金哈囉" + goldSupplyCardPrice + "鑽石*" + goldSupplyCardQuantity + "個+";
 					}
 					if (diamondSalesQuantity > 0) {
 						productList += diamondSalesQuantity + "鑽石+";
@@ -384,8 +384,8 @@
 					
 					productList = productList.slice(0, -1) + ")=";
 					
-					document.getElementById("productListCalculateDiscountRate1").value = productList + `${discountRate1.toFixed(2)}%`;
-					document.getElementById("productListCalculateDiscountRate2").value = "100%-" + productList + `${discountRate2.toFixed(2)}%`;
+					document.getElementById("productListCalculateDiscountRate1").value = "售價/原價=" + productList + `${discountRate1.toFixed(2)}%`;
+					document.getElementById("productListCalculateDiscountRate2").value = "100%-售價/原價=" + "100%-" + productList + `${discountRate2.toFixed(2)}%`;
 				}
 			}
 		</script>
