@@ -345,10 +345,11 @@
 					
 					// 商品清單
 					let productList = parseFloat(document.getElementById("salesPriceInput").value);
+					
 					if (salesType == "money") {
-						productList += "$=";
+						productList += "$/(";
 					} else {
-						productList += "鑽石=";
+						productList += "鑽石/(";
 					}
 					if (commonSupplyCardQuantity > 0) {
 						productList += "常規補給卡*" + commonSupplyCardQuantity + "+";
@@ -375,7 +376,7 @@
 						productList += "鑽石*" + diamondSalesQuantity + "+";
 					}
 					
-					productList = productList.slice(0, -1) + "=";
+					productList = productList.slice(0, -1) + ")=";
 					
 					document.getElementById("productListCalculateDiscountRate1").value = productList + `${discountRate1.toFixed(2)}%`;
 					document.getElementById("productListCalculateDiscountRate2").value = productList + `${discountRate2.toFixed(2)}%`;
